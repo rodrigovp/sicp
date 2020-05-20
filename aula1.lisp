@@ -84,7 +84,3 @@
 
 (defun raiz-quadrada(x) (raiz-quadrada-iterativa 1 x))
 (p (raiz-quadrada 2))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-; sub título 1.2
-
