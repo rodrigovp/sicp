@@ -87,6 +87,7 @@
 	)
 )
 
+; bugada!
 (defun i-function (n)
 	(defun i-function-iter (count n r)	
 		(p '-----)
