@@ -45,7 +45,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; sub-título 1.2.2
-; FAZER ATÉ O EXERCÍCIO 1.15
 
 (defun fibonacci-recursivo(n)
 	(cond
@@ -118,6 +117,49 @@
 	)
 )
 ;(p (r-function 4))
-(p (i-function 4))
+;(p (i-function 4))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Exercício 1.12 (Triângulo de pascal)
+; resolução baseada na explicação dada no link https://brasilescola.uol.com.br/matematica/numeros-binomiais.htm
+(defun fatorial (n)
+	(cond 
+		((= n 0) 1)
+		((= n 1) 1)
+		((* n (fatorial (- n 1))))
+	)
+)
+;(p (fatorial 3))
 
+(defun binomial(n m)
+	(/
+		(fatorial n)
+		(*
+			(fatorial m)
+			(fatorial (- n m))
+		)
+	)
+)
+;(p (binomial 0 0))
 
+(defun linha(n)
+	(defun linha_(n m)
+		(cond
+			((= m 0) 1)
+			(
+				(p(binomial n m))
+				(linha_ n (- m 1))
+			)
+		)
+	)
+	(linha_ n n)
+)
+;(p (linha 0))
+
+(defun triangulo-pascal(n)
+	(p (linha n))
+	(p '-----)
+	(if (> n 0)
+		(triangulo-pascal (- n 1))
+	)
+)
+(triangulo-pascal 5)
