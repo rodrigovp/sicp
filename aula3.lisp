@@ -1,3 +1,5 @@
+(defun p(x) (print x)) ; alias para a função print
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; Exercício 1.11 (recursivo):
 (defun soma-3-numeros (a b c) (+ a b c))
@@ -74,7 +76,7 @@
 		(cond
 			((= m 0) 1)
 			(
-				(p(binomial n m))
+				(p (binomial n m))
 				(linha_ n (- m 1))
 			)
 		)

@@ -20,11 +20,35 @@
 			(raiz-quadrada-iterativa (improve guess) )
 		)
 	)
+	(raiz-quadrada x)
+)
+;(p (raiz-bloco 2))
+;(p (improve 1)) ; NÃO FUNCIONA!
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; Exercício 1.6
+(defun new-if(predicate then-clause else-clause)
+	(cond 
+		(predicate then-clause)
+		(else-clause)
+	)
+)
+;(p (new-if (= 2 3) 0 5))
+;(p (new-if (= 1 1) 0 5))
+
+(defun raiz-new-if (x)
+	(defun raiz-quadrada(x) (raiz-quadrada-iterativa 1.0))
+	(defun bom-o-suficiente? (guess) (< (abs (- (quadrado guess) x)) 0.001))
+	(defun improve(guess) (media guess (/ x guess)))
+	(defun raiz-quadrada-iterativa(guess)
+		(new-if (bom-o-suficiente? guess)
+			guess
+			(raiz-quadrada-iterativa (improve guess) )
+		)
+	)
 	(raiz-quadrada 2)
 )
-;(p (raiz-bloco 3))
-;(p (improve 9)) ; isso não deveria funcionar! Ou deveria? :O
-
+;(p (raiz-new-if 3))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; exercício 1.10
 (defun ackermann (x y)
