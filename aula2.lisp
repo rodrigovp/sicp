@@ -12,7 +12,7 @@
 
 (defun raiz-bloco (x)
 	(defun raiz-quadrada(x) (raiz-quadrada-iterativa 1.0))
-	(defun bom-o-suficiente? (guess) (< (abs (- (quadrado guess) x)) 0.001))
+	(defun bom-o-suficiente? (guess) (< (abs (- (quadrado guess) x)) 0.0001))
 	(defun improve(guess) (media guess (/ x guess)))
 	(defun raiz-quadrada-iterativa(guess)
 		(if (bom-o-suficiente? guess)
@@ -22,7 +22,7 @@
 	)
 	(raiz-quadrada x)
 )
-;(p (raiz-bloco 2))
+;(p (raiz-bloco 1000))
 ;(p (improve 1)) ; NÃO FUNCIONA!
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -46,9 +46,37 @@
 			(raiz-quadrada-iterativa (improve guess) )
 		)
 	)
-	(raiz-quadrada 2)
+	(raiz-quadrada x)
 )
 ;(p (raiz-new-if 3))
+
+; x/y^2 + 2y 
+; ----------
+;     3
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; exercício 1.8
+(defun raiz-cubica(x)
+	(defun bom-o-suficiente? (y) (< (abs (- (* y y y) x)) 0.001))
+	(defun improve(y) 
+		(/ 
+			(+ 
+				(* 2 y) 
+				(/ x (quadrado y))
+			)
+			3
+		)
+	)
+	(defun raiz-cubica-iterativa(y)
+		(p y)
+		(if (bom-o-suficiente? y)
+			y
+			(raiz-cubica-iterativa(improve y))
+		)
+	)
+	(raiz-cubica-iterativa 1.0)
+)
+(p (raiz-cubica 4))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; exercício 1.10
 (defun ackermann (x y)
