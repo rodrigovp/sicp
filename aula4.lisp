@@ -64,3 +64,7 @@
 		((* b (potencia-rapida b (- e 1))))))
 
 (p (potencia-rapida 2 4))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; exercício 1.16
+;; ver https://codology.net/post/sicp-solution-exercise-1-16/
