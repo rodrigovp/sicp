@@ -38,4 +38,29 @@
 	)
 	(raiz-iter 1.0 indice)
 )
-(p (raiz 3 125000))
+;(p (raiz 2 2))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; sub título 1.2.4
+(defun potencia-iter(b e)
+	(defun potencia-iter_(b counter product)
+		(if (= counter 0)
+			product
+			(potencia-iter_ b (- counter 1) (* b product))))
+	(potencia-iter_ b e 1)
+)
+;(p(potencia-iter 2 4))
+
+(defun par?(n)
+	(= (rem n 2) 0))
+
+(defun quadrado(x)
+	(* x x))
+
+(defun potencia-rapida(b e)
+	(cond 
+		((= e 0) 1)
+		((par? e) (quadrado (potencia-rapida b (/ e 2))))
+		((* b (potencia-rapida b (- e 1))))))
+
+(p (potencia-rapida 2 4))
