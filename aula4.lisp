@@ -63,7 +63,7 @@
 		((par? e) (quadrado (potencia-rapida b (/ e 2))))
 		((* b (potencia-rapida b (- e 1))))))
 
-(p (potencia-rapida 2 4))
+(p (potencia-rapida 3 7))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; exercício 1.16
