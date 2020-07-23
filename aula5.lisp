@@ -48,6 +48,43 @@
 ;(print (rem 1 10))
 
 ;(print (get-internal-real-time))
-
-
 ;(print (random 12))
+
+; exercício 1.22
+(defun timed-prime-test(n)
+	(defun report-prime(elapsed-time)
+		(print '***)
+		(print elapsed-time)
+	)
+
+	(defun start-prime-test(n start-time)
+		(if (primo? n)
+			(report-prime (- (get-internal-real-time) start-time))
+		)
+	)
+
+	(terpri)
+	(print n)
+	(start-prime-test n (get-internal-real-time))
+)
+;(timed-prime-test 11)
+
+(defun search-for-primes(n)
+	(defun search-for-primes-count(n cont)
+		(timed-prime-test n)
+		(if(> cont 0)
+			(search-for-primes-count (+ n 1) (- cont 1))
+		)
+	)
+	(search-for-primes-count n 100)
+)
+(print (search-for-primes 100))
+
+;(print 'teste)
+;(terpri)
+;(print 'teste)
+
+
+
+
+
