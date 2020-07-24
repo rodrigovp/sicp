@@ -31,14 +31,13 @@
 
 ; mapcar -> aplica uma dada função repetidamente aos argumentos dados
 (defun soma-um(x) 
-	;(print (+ x 1))
+	(print (+ x 1))
 )
-(mapcar 'soma-um '(1 2 3 4))
+;(print (mapcar 'soma-um '(1 2 3 4)))
 
 ; apply -> aplica uma função a uma lista de argumentos
-(apply '+ '(1 2 3 4))
+;(apply '+ '(1 2 3 4))
 ;(print (apply 'cubo '(2)))
-
 
 (defun soma (a b) (+ a b))
 ;(print (soma 3 2))
