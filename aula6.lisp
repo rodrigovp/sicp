@@ -7,22 +7,17 @@
 ;(print (soma-inteiros 3 2)) ;0
 
 (defun cubo(x) (* x x x))
-(defun soma-cubos(a b)
+(defun soma-cubos(a b) 
 	(if (> a b)
 		0
 		(+ (cubo a) (soma-cubos (+ a 1) b))))
-(print (soma-cubos 1 3)) ;36
+;(print (soma-cubos 1 3)) ;36
 
 (defun pi-sum(a b)
 	(if (> a b)
 		0
 		(+ (/ 1.0 (* a (+ a 2))) (pi-sum (+ a 4) b))))
-;(print (pi-sum 2 2))
-
-;(define (sum term a next b)
-;	(if (> a b)
-;		0
-;		(+ (term a) (sum term (next a) next b))))
+(print (pi-sum 1 3))
 
 ; mapcar -> aplica uma dada função repetidamente aos argumentos dados
 (defun incrementa(x) (+ x 1))
@@ -39,11 +34,16 @@
 )
 ;(print (chama-funcao-soma #'soma 3 2 3))
 
-(defun funcao-x(fn1 a b)
+(defun funcao-pi(a)(/ 1.0 (* a (+ a 2))))
+(defun proximo-pi(a)(+ a 4))
+
+(defun funcao-x(fn1 a b fn2)
 	(if (> a b)
 		0
-		(+ (funcall fn1 a) (funcao-x fn1 (+ a 1) b))
+		(+ (funcall fn1 a) (funcao-x fn1 (funcall fn2 a) b fn2))
 	)
 )
-;(print (funcao-x #'cubo 1 3)) ;36 - igual à função semelhante acima
-;(print (funcao-x #'incrementa 1 3))
+
+;(print (funcao-x #'constante 1 3 #'incrementa))
+;(print (funcao-x #'cubo 1 3 #'incrementa)) ;36 - igual à função semelhante acima
+(print (funcao-x #'funcao-pi 1 3 #'proximo-pi))
