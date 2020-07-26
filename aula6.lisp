@@ -46,4 +46,5 @@
 
 ;(print (funcao-x #'constante 1 3 #'incrementa))
 ;(print (funcao-x #'cubo 1 3 #'incrementa)) ;36 - igual à função semelhante acima
-(print (funcao-x #'funcao-pi 1 3 #'proximo-pi))
+;(print (funcao-x #'funcao-pi 1 3 #'proximo-pi))
+;(print (* 8 (pi-sum 1 100)))
