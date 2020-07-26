@@ -37,14 +37,13 @@
 (defun funcao-pi(a)(/ 1.0 (* a (+ a 2))))
 (defun proximo-pi(a)(+ a 4))
 
-(defun funcao-x(fn1 a b fn2)
+(defun soma(fn1 a b fn2)
 	(if (> a b)
 		0
-		(+ (funcall fn1 a) (funcao-x fn1 (funcall fn2 a) b fn2))
+		(+ (funcall fn1 a) (soma fn1 (funcall fn2 a) b fn2))
 	)
 )
 
-;(print (funcao-x #'constante 1 3 #'incrementa))
-;(print (funcao-x #'cubo 1 3 #'incrementa)) ;36 - igual à função semelhante acima
-;(print (funcao-x #'funcao-pi 1 3 #'proximo-pi))
+;(print (soma #'cubo 1 3 #'incrementa)) ;36 - igual à função semelhante acima
+;(print (soma #'funcao-pi 1 3 #'proximo-pi))
 ;(print (* 8 (pi-sum 1 100)))
