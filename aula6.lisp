@@ -55,7 +55,6 @@
 (defun acumulador (fnCombinador valorNulo fn1 a b fn2)
 	(if (> a b)
 		valorNulo
-		;(* (funcall fn1 a) (produto fn1 (funcall fn2 a) b fn2))
 		(funcall fnCombinador (funcall fn1 a) (produto fn1 (funcall fn2 a) b fn2))
 	)
 )
