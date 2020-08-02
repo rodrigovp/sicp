@@ -62,5 +62,7 @@
 (defun multiplicar (a b) (* a b))
 ;(print (acumulador #'somar 0 #'identidade 2 3 #'incrementa)) ;5
 ;(print (acumulador #'multiplicar 1 #'identidade 1 5 #'incrementa)) ;120
+; passando lambda como parâmetros
 (print (acumulador (lambda (a b) (+ a b)) 0 (lambda (a) a) 2 3 (lambda (a) (+ a 1)))) ;5
+; syntax sugar (também passando lambdas)
 (print (acumulador (#' (a b) (+ a b)) 0 (#' (a) a) 2 3 (#' (a) (+ a 1)))) ;5
