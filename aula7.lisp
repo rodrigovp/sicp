@@ -28,11 +28,4 @@
         )
     )
 )
-(print (busca (lambda (x) (- (* x x x) (* 2 x) 3)) 1.0 2.0))
-
-;(defun metodo-biseccao (fn a b)
-;    (let ((valor-a (fn a)))
-;          (valor-b (fn b)))
-;    (cond (test-form-1 form1)
-;          (test-form-2 form2))
-;)
+;(print (busca (lambda (x) (- (* x x x) (* 2 x) 3)) 1.0 2.0))
