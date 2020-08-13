@@ -34,4 +34,10 @@
 (defun quadrado (x) (* x x))
 (defun average-damp (fn)
     (lambda (x) (media x (funcall fn x))))
-(print (funcall (average-damp #'quadrado) 10))
+;(print (funcall (average-damp #'quadrado) 10))
+
+;exercício 1.41
+(defun inc (x) (+ 1 x))
+(defun dobro (fn)
+    (lambda (x) (funcall fn (funcall fn x))))
+(print (funcall (dobro #'inc) 1))
