@@ -29,3 +29,9 @@
     )
 )
 ;(print (busca (lambda (x) (- (* x x x) (* 2 x) 3)) 1.0 2.0))
+
+; implementação de parte do capítulo 1.3.4
+(defun quadrado (x) (* x x))
+(defun average-damp (fn)
+    (lambda (x) (media x (funcall fn x))))
+(print (funcall (average-damp #'quadrado) 10))
