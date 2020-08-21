@@ -40,4 +40,4 @@
 (defun inc (x) (+ 1 x))
 (defun dobro (fn)
     (lambda (x) (funcall fn (funcall fn x))))
-(print (funcall (dobro #'inc) 1))
+;(print (funcall (dobro #'inc) 1))
