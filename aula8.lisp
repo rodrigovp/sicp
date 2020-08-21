@@ -32,4 +32,6 @@
         )
     )
 )
-(imprimir-numero-racional (adicao-fracoes (numero-racional 1 5) (numero-racional 3 7)))
+(imprimir-numero-racional 
+    (adicao-fracoes (numero-racional 1 5) 
+                    (numero-racional 3 7)))
