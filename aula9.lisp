@@ -55,11 +55,28 @@
     (write-line ")")
 )
 
-(imprimir-ponto 
-    (ponto-do-meio 
-        (criar-segmento 
-            (criar-ponto 1 1) 
-            (criar-ponto 3 3)
-        )
+;(imprimir-ponto 
+;    (ponto-do-meio 
+;        (criar-segmento 
+;            (criar-ponto 1 1) 
+;            (criar-ponto 3 3)
+;        )
+;    )
+;)
+
+; exercício 2.3
+(defun perimetro-retangulo (ponto-a ponto-c)
+    (let ((ponto-b (criar-ponto (coordenada-x ponto-a) (coordenada-y ponto-c)))
+          (ponto-d (criar-ponto (coordenada-x ponto-c) (coordenada-y ponto-a))))
+        (abs 
+            (+
+                (- (coordenada-y ponto-b) (coordenada-y ponto-a))
+                (- (coordenada-x ponto-c) (coordenada-x ponto-b))
+                (- (coordenada-y ponto-c) (coordenada-y ponto-d))
+                (- (coordenada-x ponto-d) (coordenada-x ponto-a))
+            )
+          )
     )
 )
+;(print (perimetro-retangulo (criar-ponto 1 1) (criar-ponto 0 0)))
+;(print (perimetro-retangulo (criar-ponto 10 15) (criar-ponto 20 18)))
