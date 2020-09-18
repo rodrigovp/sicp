@@ -1,0 +1,21 @@
+; parte do capítulo 2.2.1 (criação de listas)
+(defvar uma-lista (list 1 2 4 6))
+;(print uma-lista)
+;(print (car uma-lista))
+;(print (cadr uma-lista))
+;(print (cddr uma-lista))
+;(print (cons 10 uma-lista))
+
+(defun obter-n-esimo(lista n)
+    (if (= n 0)
+        (car lista)
+        (obter-n-esimo (cdr lista) (- n 1))))
+;(print (obter-n-esimo (list 1 2 3 4) 5))
+
+(defun tamanho(lista)
+    (if (null lista)
+        0
+        (+ 1 (tamanho (cdr lista)))
+    )
+)
+(print (tamanho uma-lista))
