@@ -18,4 +18,13 @@
         (+ 1 (tamanho (cdr lista)))
     )
 )
-(print (tamanho uma-lista))
+;(print (tamanho uma-lista))
+
+; já existe uma função append no common-lisp, e criar outra de mesmo nome causa conflito
+(defun append2(lista1 lista2)
+    (if (null lista1)
+        lista2
+        (cons (car lista1) (append2 (cdr lista1) lista2))
+    )
+)
+;(print (append2 (list 1 2 3 4) (list 5 6 7 8)))
