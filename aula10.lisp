@@ -32,12 +32,20 @@
 ; exercício 2.17
 (defun ultimo-par(lista)
     (defun ultimo-par2(lista numero)
-        (cond
-            ((null lista) numero)
-            ((= (mod (car lista) 2) 0) (ultimo-par2 (cdr lista) (car lista)))
-            ((ultimo-par2 (cdr lista) numero))
+        (let ((cabeca (car lista))
+              (cauda (cdr lista)))
+            (cond
+                ((null lista) numero)
+                ((= (mod cabeca 2) 0) (ultimo-par2 cauda cabeca))
+                ((ultimo-par2 cauda numero))
+            )
         )
     )
     (ultimo-par2 lista nil)
 )
 (print (ultimo-par (list 1 2 3 4 5)))
+
+(defun testar-let()
+    (let ((a 55)) 
+        (print a))
+)
