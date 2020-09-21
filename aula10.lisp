@@ -44,8 +44,3 @@
     (ultimo-par2 lista nil)
 )
 (print (ultimo-par (list 1 2 3 4 5)))
-
-(defun testar-let()
-    (let ((a 55)) 
-        (print a))
-)
