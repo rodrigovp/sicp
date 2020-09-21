@@ -43,4 +43,16 @@
     )
     (ultimo-par2 lista nil)
 )
-(print (ultimo-par (list 1 2 3 4 5)))
+;(print (ultimo-par (list 1 2 3 4 5)))
+
+; exercício 2.18
+(defun reverter(lista)
+    (defun reverter2 (lista lista-invertida)
+        (if (null lista)
+            lista-invertida
+            (reverter2 (cdr lista) (cons (car lista) lista-invertida))
+        )
+    )
+    (reverter2 lista ())
+)
+(print (reverter (list 1 2 3 4 5)))
