@@ -28,3 +28,16 @@
     )
 )
 ;(print (append2 (list 1 2 3 4) (list 5 6 7 8)))
+
+; exercício 2.17
+(defun ultimo-par(lista)
+    (defun ultimo-par2(lista numero)
+        (cond
+            ((null lista) numero)
+            ((= (mod (car lista) 2) 0) (ultimo-par2 (cdr lista) (car lista)))
+            ((ultimo-par2 (cdr lista) numero))
+        )
+    )
+    (ultimo-par2 lista nil)
+)
+(print (ultimo-par (list 1 2 3 4 5)))
