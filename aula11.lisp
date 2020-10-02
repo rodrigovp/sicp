@@ -39,7 +39,7 @@
         (cons (* (car itens) fator) (escalar (cdr itens) fator))))
 ; (print (escalar (list 1 2 3) 4))
 
-; função existente na lib padrão do CL
+; função existente na lib padrão do CL (com lista de argumentos diferente)
 (defun map (proc itens)
     (if (null itens)
         nil
