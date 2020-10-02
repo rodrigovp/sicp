@@ -37,7 +37,7 @@
             (cond
                 ((null lista) numero)
                 ((= (mod cabeca 2) 0) (ultimo-par2 cauda cabeca))
-                ((ultimo-par2 cauda numero))
+                ((= 1 1) (ultimo-par2 cauda numero))
             )
         )
     )
@@ -55,4 +55,4 @@
     )
     (reverter2 lista ())
 )
-(print (reverter (list 1 2 3 4 5)))
+;(print (reverter (list 1 2 3 4 5)))
