@@ -32,6 +32,29 @@
     result))
 ; (print (mesma-paridade 2 3 4 5 6))
 
+; falta testar o caso em que cabeca seja nula, e corrigir
+(defun mesma-paridade-recursivo (elem &rest outros)
+    (defun mesma-paridade (elem outros resultado)
+        (print resultado)
+        (let 
+            ((cabeca (car outros)))
+            (if (= (rem cabeca 2) (rem elem 2))
+                (setf resultado (append resultado (list cabeca)))
+            )
+            (mesma-paridade elem (cdr outros) resultado)
+        )
+    )
+    (let ((resultado (list elem)))
+        (if (null outros)
+            resultado
+            (mesma-paridade elem outros resultado)
+        )
+    )
+
+)
+(print (mesma-paridade-recursivo 4 5 6 7 8 9))
+
+
 ; item 2.2.1 - Maps
 (defun escalar (itens fator)
     (if 
@@ -40,16 +63,16 @@
 ; (print (escalar (list 1 2 3) 4))
 
 ; função existente na lib padrão do CL (com lista de argumentos diferente)
-(defun map (proc itens)
-    (if (null itens)
-        nil
-        (cons 
-            (funcall proc (car itens))
-            (map proc (cdr itens))
-        )
-    )
-)
-(print 
-    (map 
-        (lambda (x) (* x x)) 
-        (list 1 2 3)))
+;(defun map (proc itens)
+;    (if (null itens)
+;        nil
+;        (cons 
+;            (funcall proc (car itens))
+;            (map proc (cdr itens))
+;        )
+;    )
+;)
+;(print 
+;    (map 
+;        (lambda (x) (* x x)) 
+;        (list 1 2 3)))
