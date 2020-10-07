@@ -32,28 +32,24 @@
     result))
 ; (print (mesma-paridade 2 3 4 5 6))
 
-; falta testar o caso em que cabeca seja nula, e corrigir
 (defun mesma-paridade-recursivo (elem &rest outros)
-    (defun mesma-paridade (elem outros resultado)
-        (print resultado)
-        (let 
-            ((cabeca (car outros)))
-            (if (= (rem cabeca 2) (rem elem 2))
-                (setf resultado (append resultado (list cabeca)))
+    (defun mesma-paridade2 (elem outros resultado)
+        (if (null outros) 
+            resultado 
+            (let 
+                ((cabeca (car outros)))
+                (if (= (rem cabeca 2) (rem elem 2))
+                    (setf resultado (append resultado (list cabeca)))
+                )
+                (mesma-paridade2 elem (cdr outros) resultado)
             )
-            (mesma-paridade elem (cdr outros) resultado)
-        )
+        )       
     )
     (let ((resultado (list elem)))
-        (if (null outros)
-            resultado
-            (mesma-paridade elem outros resultado)
-        )
+        (mesma-paridade2 elem outros resultado)
     )
-
 )
-(print (mesma-paridade-recursivo 4 5 6 7 8 9))
-
+(print (mesma-paridade-recursivo 5 6 7 8 9))
 
 ; item 2.2.1 - Maps
 (defun escalar (itens fator)
