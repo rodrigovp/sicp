@@ -16,4 +16,19 @@
             (escalar-arvore (cdr arvore) fator)))
     )
 )
-(print (escalar-arvore (list 1 (list 2 (list 3 4) 5) (list 6 7)) 10))
+;(print (escalar-arvore (list 1 (list 2 (list 3 4) 5) (list 6 7)) 10))
+
+; exercício 2.30
+(defun elemento (item-lista)
+    (if (listp item-lista)(car item-lista) item-lista))
+
+(defun elevar-ao-quadrado-arvore (arvore)
+    (cond
+        ((null arvore) nil)
+        ((not (consp arvore)) (expt (elemento arvore) 2))
+        ((cons
+            (elevar-ao-quadrado-arvore (elemento arvore))
+            (elevar-ao-quadrado-arvore (cdr arvore))))
+    )
+)
+(print (elevar-ao-quadrado-arvore (list 1 (list 2 (list 3 4) 5) (list 6 7))))

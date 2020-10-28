@@ -49,6 +49,7 @@
 
 
 ; exercício 2.27
+;TODO: usar a função elemento definida em aula13.lisp
 (defun reversao-profunda (lista)
     (defun r2 (lista parte-invertida)
         (if (null lista) 
