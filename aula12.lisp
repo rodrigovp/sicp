@@ -36,8 +36,6 @@
 
 (defun reverter (lista)
     (defun reverter2 (lista lista-invertida)
-        ;(print lista)
-        ;(print lista-invertida)
         (if (null lista)
             lista-invertida
             (reverter2 (cdr lista) (cons (car lista) lista-invertida))
