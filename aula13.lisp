@@ -46,7 +46,14 @@
         (square-tree-map subtree)
         (quadrado subtree)))
     tree))
-(print (square-tree-map (list 1 (list 2 (list 3 4) 5) (list 6 7))))
+;(print (square-tree-map (list 1 (list 2 (list 3 4) 5) (list 6 7))))
 
 ; exercício 2.31
-; define (square-tree tree) (tree-map square tree))
+(defun square-tree-map2 (tree funcao)
+  (mapcar 
+    (lambda (subtree)
+      (if (consp subtree)
+        (square-tree-map2 subtree funcao)
+        (funcall funcao subtree)))
+    tree))
+(print (square-tree-map2 (list 1 (list 2 (list 3 4) 5) (list 6 7)) #'quadrado))
