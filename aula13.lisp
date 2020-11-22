@@ -22,9 +22,7 @@
 (defun elemento (item-lista)
     (if (listp item-lista)(car item-lista) item-lista))
 
-(defun quadrado (arvore)
-    (expt (elemento arvore) 2)
-)
+(defun quadrado (arvore) (expt (elemento arvore) 2))
 
 (defun elevar-ao-quadrado-arvore (arvore)
     (cond
@@ -56,4 +54,7 @@
         (square-tree-map2 subtree funcao)
         (funcall funcao subtree)))
     tree))
-(print (square-tree-map2 (list 1 (list 2 (list 3 4) 5) (list 6 7)) #'quadrado))
+;(print (square-tree-map2 (list 1 (list 2 (list 3 4) 5) (list 6 7)) #'quadrado))
+;(print (square-tree-map2 (list 1 (list 2 (list 3 4) 5) (list 6 7)) (lambda (numero) (+ 1 numero))))
+
+; exercício 2.32
