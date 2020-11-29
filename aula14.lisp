@@ -16,11 +16,16 @@
             ((aplica-qualquer-filtro filtro (cdr numeros)))
         )
     )
-
 )
-(print (aplica-qualquer-filtro #'eh-par (list 1 2 3 4)))
+;(print (aplica-qualquer-filtro #'eh-par (list 1 2 3 4)))
 
 ;; no livro, esta função chama-se simplesmente 'accumulate'
-;(defun aplica-qualquer-acumulador (acumulador numeros)
-
-;)
+(defun aplica-qualquer-acumulador (acumulador inicial numeros)
+    (if (null numeros) inicial 
+        (funcall acumulador 
+            (car numeros)
+            (aplica-qualquer-acumulador acumulador inicial (cdr numeros)) 
+        )
+    )
+)
+(print (aplica-qualquer-acumulador #'+ 0 (list 1 2 3 4 5)))
