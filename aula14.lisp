@@ -28,4 +28,12 @@
         )
     )
 )
-(print (aplica-qualquer-acumulador #'+ 0 (list 1 2 3 4 5)))
+;(print (aplica-qualquer-acumulador #'+ 0 (list 1 2 3 4 5)))
+
+(defun sequencia (menor maior)
+    (if 
+        (> menor maior) nil 
+        (cons menor (sequencia (+ menor 1) maior))
+    )
+)
+;(print (sequencia 1 19))
