@@ -12,3 +12,6 @@ Exercícios resolvidos em Common Lisp: https://eli.thegreenplace.net/tag/sicp
 _Playlist_ de aulas em vídeo: https://www.youtube.com/playlist?list=PLE18841CABEA24090
 
 Para rodar os scripts, usou-se a ferramenta clisp (https://clisp.sourceforge.io). 
+
+Outras referências interessantes:
+ * http://www.sicpdistilled.com/section/1-distilled/
