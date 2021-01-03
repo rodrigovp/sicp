@@ -68,9 +68,11 @@
 (defun fibonacci-pares(n)
     (acumular #'cons 
         nil
-        (filtrar #'par?
-            (mapcar #'fibonacci 
-                (sequencia 0 n))
+        (mapcar #'quadrado
+            (filtrar #'par?
+                (mapcar #'fibonacci 
+                    (sequencia 0 n))
+            )
         )
     )
 )
