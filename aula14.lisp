@@ -1,34 +1,37 @@
-; exemplo do capítulo 2.2.3
+; exemplo do capítulo 2.2.3 pag. 102
 
-(defun eh-par (numero)
+(defun par? (numero)
     (= (rem numero 2) 0)
 )
-;(print (eh-par 3))
+;(print (par? 3))
 
-;; no livro, está função chama-se simplesmente 'filter'
-(defun aplica-qualquer-filtro (filtro numeros)
+(defun impar? (numero)
+    (not (par? numero)))
+;(print (impar? 3))
+;(print (impar? 4))
+
+(defun filtrar (filtro numeros)
     (let ((primeiro-elemento (car numeros)))
         (cond 
             ((null numeros) nil) 
             ((funcall filtro primeiro-elemento) 
-                (cons primeiro-elemento (aplica-qualquer-filtro filtro (cdr numeros)))
+                (cons primeiro-elemento (filtrar filtro (cdr numeros)))
             )
-            ((aplica-qualquer-filtro filtro (cdr numeros)))
+            ((filtrar filtro (cdr numeros)))
         )
     )
 )
-;(print (aplica-qualquer-filtro #'eh-par (list 1 2 3 4)))
+;(print (filtrar #'par? (list 1 2 3 4)))
 
-;; no livro, esta função chama-se simplesmente 'accumulate'
-(defun aplica-qualquer-acumulador (acumulador inicial numeros)
+(defun acumular (acumulador inicial numeros)
     (if (null numeros) inicial 
         (funcall acumulador 
             (car numeros)
-            (aplica-qualquer-acumulador acumulador inicial (cdr numeros)) 
+            (acumular acumulador inicial (cdr numeros)) 
         )
     )
 )
-;(print (aplica-qualquer-acumulador #'+ 0 (list 1 2 3 4 5)))
+;(print (acumular #'+ 0 (list 1 2 3 4 5)))
 
 (defun sequencia (menor maior)
     (if 
@@ -37,3 +40,14 @@
     )
 )
 ;(print (sequencia 1 19))
+
+(defun quadrado (numero)
+    (expt numero 2)
+)
+
+(defun somar-impares-quadrados (numeros)
+    (acumular #'+ 0 
+        (mapcar #'quadrado 
+            (filtrar #'impar? numeros)))
+)
+;(print (somar-impares-quadrados (list 1 2 3 4 5)))
