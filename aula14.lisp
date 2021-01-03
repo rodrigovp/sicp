@@ -51,3 +51,34 @@
             (filtrar #'impar? numeros)))
 )
 ;(print (somar-impares-quadrados (list 1 2 3 4 5)))
+
+(defun fibonacci(n)
+	(cond
+		((= n 0) 0)
+		((= n 1) 1)
+		(
+			(+ 
+				(fibonacci (- n 1))
+				(fibonacci (- n 2))
+			)
+		)
+	)
+)
+;; function even-fibs, página 105
+(defun fibonacci-pares(n)
+    (acumular #'cons 
+        nil
+        (filtrar #'par?
+            (mapcar #'fibonacci 
+                (sequencia 0 n))
+        )
+    )
+)
+
+; 0 1 1 2 3 5 8 13 21 34 55
+(print (fibonacci-pares 6))
+
+
+;(defun pares-fibonacci (maximo)
+
+;)
