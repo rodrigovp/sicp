@@ -15,12 +15,3 @@
 ;(print (eh-par 2))
 ;(print (eh-par 3))
 ;;;;;
-
-(defun maior-entre-dois-numeros(x y)
-	(cond
-		((< x y) y)
-		((> x y) x)
-		((= x y) x)
-	)
-)
-(print (maior-entre-dois-numeros 3 3))
