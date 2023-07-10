@@ -1,0 +1,10 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: sicp
+  annotations:
+    github.com/project-slug: rodrigovp/sicp
+spec:
+  owner: rodrigovp:github
+  type: other
+  lifecycle: unknown
